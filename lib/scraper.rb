@@ -21,8 +21,8 @@ class Scraper
     doc.css("a").each do |link|
       link = link.attribute('html').value
       profile[link.scan(/\b+\w{1,}(?=\.)/).last.to_sym] = link
+      binding.pry
     end
-    binding.pry
   end
 
 end
