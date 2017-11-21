@@ -21,6 +21,7 @@ class Scraper
     doc.css(".social-icon-container a").attribute("href").value.each do |link|
       profile[link.scan(/\b+\w{1,}(?=\.)/).last.to_sym] = link
     end
+    binding.pry
   end
 
 end
