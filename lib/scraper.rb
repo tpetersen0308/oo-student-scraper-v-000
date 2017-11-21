@@ -19,7 +19,8 @@ class Scraper
     profile = {}
     doc = Nokogiri::HTML(open(profile_url)).css(".social-icon-container")
     doc.css("a").each do |link|
-      profile[link.scan(/\b+\w{1,}(?=\.)/).last.to_sym] = link.attribute('html')
+      link = link.attribute('html').value
+      profile[link.scan(/\b+\w{1,}(?=\.)/).last.to_sym] = link
     end
     binding.pry
   end
